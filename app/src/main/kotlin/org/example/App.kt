@@ -1,4 +1,5 @@
 package org.example
+
 // Ejemplo de uso
 fun main() {
     try {
@@ -178,4 +179,72 @@ fun main() {
     } catch (e: IllegalArgumentException) {
         println("Error: ${e.message}")
     }
+    val scanner = Scanner(System.`in`)
+    var opcion: Int
+    
+    println("¡Bienvenido a la Calculadora de Fracciones!")
+    println("Esta aplicación le permite realizar operaciones con fracciones de manera sencilla.")
+    
+    do {
+        try {
+            mostrarMenu()
+            opcion = scanner.nextInt()
+            
+            when (opcion) {
+                1 -> {
+                    realizarSuma(scanner)
+                    esperarEnter(scanner)
+                }
+                2 -> {
+                    realizarResta(scanner)
+                    esperarEnter(scanner)
+                }
+                3 -> {
+                    realizarMultiplicacion(scanner)
+                    esperarEnter(scanner)
+                }
+                4 -> {
+                    realizarDivision(scanner)
+                    esperarEnter(scanner)
+                }
+                5 -> {
+                    realizarComparacion(scanner)
+                    esperarEnter(scanner)
+                }
+                6 -> {
+                    convertirADecimal(scanner)
+                    esperarEnter(scanner)
+                }
+                7 -> {
+                    crearDesdeDecimal(scanner)
+                    esperarEnter(scanner)
+                }
+                8 -> {
+                    mostrarEjemplos()
+                    esperarEnter(scanner)
+                }
+                0 -> {
+                    println("\n¡Gracias por usar la Calculadora de Fracciones!")
+                    println("¡Hasta luego!")
+                }
+                else -> {
+                    println("Opción inválida. Por favor, seleccione una opción del 0 al 8.")
+                    esperarEnter(scanner)
+                }
+            }
+            
+        } catch (e: InputMismatchException) {
+            println("Error: Debe ingresar un número entero válido para la opción del menú.")
+            scanner.nextLine() // Limpiar buffer
+            opcion = -1 // Para que no salga del bucle
+            esperarEnter(scanner)
+        } catch (e: Exception) {
+            println("Error inesperado: ${e.message}")
+            opcion = -1 // Para que no salga del bucle
+            esperarEnter(scanner)
+        }
+        
+    } while (opcion != 0)
+    
+    scanner.close()
 }
