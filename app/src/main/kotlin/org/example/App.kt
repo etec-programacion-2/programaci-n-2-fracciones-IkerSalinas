@@ -97,7 +97,84 @@ fun main() {
         // (3/4 / 2/6) - 1 = 9/4 - 4/4 = 5/4
         val operacionCombinada3 = (fraccion1 / fraccion2) - fraccionEntero
         println("($fraccion1 / $fraccion2) - $fraccionEntero = $operacionCombinada3")
- 
+        
+        println("\n=== CASOS ESPECIALES DE MULTIPLICACIÓN Y DIVISIÓN ===")
+        val fraccionCero = Fraccion(0, 5)
+        val fraccionUno = Fraccion(7, 7).obtenerSimplificada()
+        
+        println("Multiplicación por cero: $fraccion1 * $fraccionCero = ${fraccion1 * fraccionCero}")
+        println("Multiplicación por uno: $fraccion1 * $fraccionUno = ${fraccion1 * fraccionUno}")
+        println("División por uno: $fraccion1 / $fraccionUno = ${fraccion1 / fraccionUno}")
+        
+        // Casos que generarían error (comentados para evitar excepciones)
+        println("\n=== CASOS DE ERROR EN DIVISIÓN (comentados) ===")
+        println("// División por cero causaría error:")
+        println("// $fraccion1 / $fraccionCero // Esto lanzaría IllegalArgumentException")
+        
+        // Ejemplo de división por cero (descomenta para ver el error)
+        // val divisionPorCero = fraccion1 / fraccionCero
+        
+        println("\n=== COMPARACIONES Y VALIDACIONES ===")
+        println("Comparando fracciones:")
+        println("$fraccion1 compareTo $fraccion2 = ${fraccion1.compareTo(fraccion2)}")
+        println("$fraccion1 == $fraccion2: ${fraccion1 == fraccion2}")
+        println("$fraccion1 > $fraccion2: ${fraccion1.esMayor(fraccion2)}")
+        println("$fraccion1 < $fraccion2: ${fraccion1.esMenor(fraccion2)}")
+        println("$fraccion1 >= $fraccion2: ${fraccion1.esMayorOIgual(fraccion2)}")
+        println("$fraccion1 <= $fraccion2: ${fraccion1.esMenorOIgual(fraccion2)}")
+        
+        println("\nComparando fracciones equivalentes:")
+        val fraccion5 = Fraccion(6, 8) // Equivale a 3/4
+        println("$fraccion1 == ${fraccion5.obtenerSimplificada()}: ${fraccion1 == fraccion5}")
+        println("$fraccion1 compareTo $fraccion5 = ${fraccion1.compareTo(fraccion5)}")
+        
+        println("\n=== CONVERSIONES A DECIMAL ===")
+        println("$fraccion1 = ${fraccion1.aDecimal()}")
+        println("$fraccion2 = ${fraccion2.aDecimal()}")
+        println("$fraccion3 = ${fraccion3.aDecimal()}")
+        println("$fraccion4 simplificado = ${fraccion4.obtenerSimplificada().aDecimal()}")
+        
+        println("\n=== PROPIEDADES DE FRACCIONES ===")
+        println("¿Es $fraccion1 un entero? ${fraccion1.esEntero()}")
+        println("¿Es ${Fraccion(8, 4)} un entero? ${Fraccion(8, 4).esEntero()}")
+        println("Parte entera de $fraccion1: ${fraccion1.parteEntera()}")
+        println("Parte entera de ${Fraccion(22, 7)}: ${Fraccion(22, 7).parteEntera()}")
+        
+        println("\n=== VALOR ABSOLUTO Y RECÍPROCO ===")
+        println("Valor absoluto de $fraccion3: ${fraccion3.valorAbsoluto()}")
+        println("Recíproco de $fraccion1: ${fraccion1.reciproco()}")
+        println("Recíproco de $fraccion3: ${fraccion3.reciproco()}")
+        
+        println("\n=== CONVERSIÓN DESDE DECIMAL ===")
+        val decimal1 = 0.75
+        val decimal2 = 0.333333
+        val decimal3 = -1.25
+        val decimal4 = 2.5
+        
+        println("$decimal1 = ${Fraccion.desdeDecimal(decimal1)}")
+        println("$decimal2 ≈ ${Fraccion.desdeDecimal(decimal2)}")
+        println("$decimal3 = ${Fraccion.desdeDecimal(decimal3)}")
+        println("$decimal4 = ${Fraccion.desdeDecimal(decimal4)}")
+        
+        println("\n=== MÉTODOS DE FACTORY ===")
+        println("Fracción cero: ${Fraccion.cero()}")
+        println("Fracción uno: ${Fraccion.uno()}")
+        println("Desde entero 5: ${Fraccion.desdeEntero(5)}")
+        println("Desde entero -3: ${Fraccion.desdeEntero(-3)}")
+        
+        println("\n=== ORDENAMIENTO DE FRACCIONES ===")
+        val listaFracciones = listOf(
+            Fraccion(1, 2),
+            Fraccion(3, 4),
+            Fraccion(1, 3),
+            Fraccion(2, 3),
+            Fraccion(5, 6)
+        )
+        
+        println("Lista original: ${listaFracciones.joinToString(", ")}")
+        val listaOrdenada = listaFracciones.sorted()
+        println("Lista ordenada: ${listaOrdenada.joinToString(", ")}")
+        
     } catch (e: IllegalArgumentException) {
         println("Error: ${e.message}")
     }
