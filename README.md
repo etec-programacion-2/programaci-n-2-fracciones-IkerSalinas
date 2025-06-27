@@ -6,11 +6,11 @@
 
 ## Información del Alumno
 
-**Nombre y Apellido:** [Escribir aquí tu nombre y apellido]
+**Nombre y Apellido:** Iker Salinas
 
-**Curso:** [Escribir aquí tu curso]
+**Curso:** 4°I
 
-**Fecha de entrega:** [Escribir aquí la fecha de entrega]
+**Fecha de entrega:** 24/6/2025
 
 ---
 
@@ -53,7 +53,7 @@ El trabajo se divide en las siguientes etapas. **Al finalizar cada etapa, deber�
            field = value 
        }
    ```
-5. Implementar el método `toString()` que devuelva la fracción en formato "numerador/denominador".
+5. Implementar el método `toStriEscribir aquí la fecha de entrega]ng()` que devuelva la fracción en formato "numerador/denominador".
 6. Crear un método `mostrar()` que imprima la fracción en consola.
 7. **Validación:** Verificar que el denominador no sea cero en el constructor.
 8. **Push al repositorio** con el mensaje "Etapa 1: Definición básica de la clase Fraccion".
